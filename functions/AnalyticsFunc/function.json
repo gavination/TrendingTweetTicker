@@ -2,11 +2,19 @@
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "name": "msg",
+      "name": "inMessage",
       "type": "queueTrigger",
       "direction": "in",
       "queueName": "tweetmessages",
       "connection": "storageaccountfoobaa6a7_STORAGE"
+    }, 
+    {
+      "name": "outMessage",
+      "type": "table",
+      "tableName": "processedmessages",
+      "partitionKey": "message",
+      "connection": "storageaccountfoobaa6a7_STORAGE",
+      "direction": "out"
     }
   ]
 }
