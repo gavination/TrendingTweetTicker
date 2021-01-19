@@ -9,12 +9,13 @@
       "connection": "storageaccountfoobaa6a7_STORAGE"
     }, 
     {
+      "type": "cosmosDB",
+      "direction": "out",
       "name": "outMessage",
-      "type": "table",
-      "tableName": "processedmessages",
-      "partitionKey": "message",
-      "connection": "storageaccountfoobaa6a7_STORAGE",
-      "direction": "out"
+      "databaseName": "sentimentdb",
+      "collectionName": "processed_messages",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
     }
   ]
 }

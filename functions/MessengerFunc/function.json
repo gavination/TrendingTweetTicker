@@ -1,0 +1,27 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "documents",
+      "type": "cosmosDBTrigger",
+      "direction": "in",
+      "leaseCollectionName": "leases",
+      "connectionStringSetting": "AzureCosmosDBConnectionString",
+      "databaseName": "sentimentdb",
+      "collectionName": "processed_messages",
+      "createLeaseCollectionIfNotExists": true,
+      "maxItemsPerInvocation": 1
+  }, 
+  {
+    "type": "twilioSms",
+    "name": "twilioMessage",
+    "accountSidSetting": "AccountSidSetting",
+    "authTokenSetting": "AuthTokenSetting",
+    "from": "+18317132214",
+    "direction": "out",
+    "body": "Azure Functions Testing"
+  }
+    
+  ],
+  "disabled": false
+} 

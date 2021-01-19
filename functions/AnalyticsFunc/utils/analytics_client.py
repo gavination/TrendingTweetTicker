@@ -13,7 +13,7 @@ def authenticate_client():
             credential=ta_credential)
     return text_analytics_client
 
-def analyze_statement(statement, client: TextAnalyticsClient):
+def analyze_statement(statement, client: TextAnalyticsClient, row_key: uuid):
     try:
         # Message argument has to be an array to feed to the sentiment analysis api
         response = client.analyze_sentiment(documents=[statement])
@@ -34,7 +34,7 @@ def analyze_statement(statement, client: TextAnalyticsClient):
             analyzed_data["message"] = [statement][idx]
             analyzed_data["sentiment"] = doc.sentiment
             analyzed_data["sentimentValues"] = sentiment_values
-            analyzed_data["rowKey"] = str(uuid.uuid4())
+            analyzed_data["rowKey"] = row_key
         
         return analyzed_data
     except Exception as err:
